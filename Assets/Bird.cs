@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour
 {
-    private int time=1;
-    private float a = 60;
+    public static int time=1;
+    private  float a = 60;
     private float endt;
     [SerializeField]
     Text zikan;
