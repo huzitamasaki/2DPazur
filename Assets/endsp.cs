@@ -16,11 +16,22 @@ public class endsp : MonoBehaviour
     public static int ihsukoa;
     public int k;
 
+    public AudioSource ue;
+    public AudioSource sita;
+
     public void ToGameScene()
     {
         Bird.score = 0;
         SceneManager.LoadScene("Scenes/Game");
+        Bird.time = 59;
         
+    }
+
+    private void Start()
+    {
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        ue = audioSources[0];
+        sita = audioSources[1];
     }
 
     // Update is called once per frame
@@ -31,6 +42,11 @@ public class endsp : MonoBehaviour
         if (ihsukoa <= k)
         {
             ihsukoa = k;
+            ue.PlayOneShot(ue.clip);
+        }
+        else
+        {
+            sita.PlayOneShot(sita.clip);
         }
 
         sukoabodo.text = Bird.score.ToString();

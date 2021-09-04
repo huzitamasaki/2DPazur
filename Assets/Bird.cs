@@ -41,6 +41,7 @@ public class Bird : MonoBehaviour
 
     private AudioSource sound01;
     private AudioSource sound02;
+    private AudioSource sound03;
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class Bird : MonoBehaviour
             AudioSource[] audioSources = GetComponents<AudioSource>();
             sound01 = audioSources[0];
             sound02 = audioSources[1];
+            sound03 = audioSources[2];
             TouchManager.Began += (info) =>
             {
                 if (time != 0)
@@ -174,6 +176,10 @@ public class Bird : MonoBehaviour
         {
             a = a - Time.deltaTime;
             time = (int)a;
+        }
+        if (time == 10)
+        {
+            sound03.PlayOneShot(sound03.clip);
         }
         if (time == 0)
         {
